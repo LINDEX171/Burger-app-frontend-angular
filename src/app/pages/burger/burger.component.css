@@ -1,0 +1,24 @@
+/* burger.component.css */
+
+/* Exemple de style pour le formulaire d'ajout de burger */
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form .form-control {
+    margin-bottom: 15px;
+}
+
+form button {
+    width: 100%;
+}
+
+/* Exemple de style pour les produits existants */
+.box-shadow {
+    /* Ajoutez vos styles personnalisés ici */
+}
