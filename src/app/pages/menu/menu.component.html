@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span id="menuTitle">Address Book</span>
+    <a mat-button routerLink="/" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
+    <a mat-button routerLink="/contacts" class="top-menu-item"><mat-icon>people</mat-icon>Contacts</a>
+    <a mat-button routerLink="/newcontact" class="top-menu-item"><mat-icon>person_add</mat-icon>New Contact</a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
+        <div class="side-nav-items">
+            <div>
+                <a (click)="sidenav.close()" mat-button routerLink="/"
+                    class="side-menu-item"><mat-icon>home</mat-icon>Home</a>
+            </div>
+
+            <div>
+                <a (click)="sidenav.close()" mat-button routerLink="/contacts"
+                    class="side-menu-item"><mat-icon>people</mat-icon>Contacts</a>
+            </div>
+
+            <div>
+                <a (click)="sidenav.close()" mat-button routerLink="/newcontact"
+                    class="side-menu-item"><mat-icon>person_add</mat-icon>New
+                    Contact</a>
+            </div>
+        </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+<div class="container">
+    <main>
+      
+    </main>
+  </div>

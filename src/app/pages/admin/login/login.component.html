@@ -1,0 +1,47 @@
+<!-- src/app/login/login.component.html -->
+<body class="center flex">
+    <section class="card center">
+        <div class="d-logo center flex">
+            <img class="logo" src="https://www.ifatih.com/images/logos/8/4-content-0-logo-1-full-black_3x.png" alt="logo">
+        </div>
+        <div class="title">
+            <h2 class="center flex roboto-thin">One account</h2>
+            <h2 class="center flex roboto-thin">Many possibilities</h2>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+            <section class="form">
+                <input class="center flex roboto-thin" type="email" formControlName="email" placeholder="E-mail address or phone number">
+                <input class="center flex roboto-thin" type="password" formControlName="password" placeholder="Password">
+                <div class="space-between">
+                    <div class="center flex">
+                        <input type="checkbox" id="rememberMe">
+                    </div>
+                    <div class="center flex">
+                        <a class="link text-size-10 roboto-thin" href="">
+                            <span>Forgot password?</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="buttons">
+                <button class="center flex button button-primary" type="submit">Sign in</button>
+                <button class="center flex button button-secondary" type="button">
+                    <!-- Google Sign In Button -->
+                </button>
+            </section>
+
+            <section class="not-member center flex">
+                <span class="text-size-10 roboto-thin"> Not a member yet? <a class="link" routerLink="/signup">Sign up</a></span>
+            </section>
+            
+
+            <!-- Affichage des messages d'erreur -->
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+        </form>
+
+    </section>
+</body>

@@ -1,0 +1,45 @@
+<!-- src/app/register/register.component.html -->
+<body>
+    <section class="card">
+        <div class="d-logo">
+            <img class="logo" src="https://www.ifatih.com/images/logos/8/4-content-0-logo-1-full-black_3x.png" alt="logo">
+        </div>
+        <div class="title">
+            <h2>One account</h2>
+            <h2>Many possibilities</h2>
+        </div>
+        <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+            <section class="form">
+                <input name="name" id="name" placeholder="Name" [(ngModel)]="model.name" required>
+                <input type="email" name="email" id="email" placeholder="E-mail" [(ngModel)]="model.email" required>
+                <input name="prenom" id="prenom" placeholder="Prenom" [(ngModel)]="model.prenom" required>
+                <input name="telephone" id="numero" placeholder="Numero" [(ngModel)]="model.telephone" required>
+                <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="model.password" required>
+                <div class="space-between">
+                    <div class="remember-me">
+                        <input type="checkbox" name="rememberMe" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a class="link" href="">Forgot password?</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="buttons">
+                <button class="button button-primary" type="submit">Sign up</button>
+                <button class="button button-secondary" type="button">
+                    <!-- SVG for Google Sign-In -->
+                    Sign up with Google
+                </button>
+            </section>
+
+
+            <section class="not-member center flex">
+                <span class="text-size-10 roboto-thin"> Not a member yet? <a class="link" routerLink="/login">Sign up</a></span>
+            </section>
+            
+
+        </form>
+    </section>
+</body>
