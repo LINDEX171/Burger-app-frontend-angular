@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,13 +10,18 @@ export class Commande1Service {
 
   constructor(private http: HttpClient) { }
 
-  getCommandes(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
-}
+  getCommandes(params?: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl, { params });
+  }
 
 
 getBurger(id: number): Observable<any> {
   return this.http.get<any>(`http://localhost:8000/api/burgers/${id}`);
+}
+
+getCommandesByStatut(statut: string): Observable<any[]> {
+  let params = new HttpParams().set('statut', statut);
+  return this.http.get<any[]>(this.apiUrl, { params });
 }
 
 

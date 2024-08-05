@@ -8,23 +8,29 @@ import { Commande1Service } from '../../services/commande1.service';
 })
 export class CommandeListComponent implements OnInit {
   commandes: any[] = [];
+  selectedStatut: string = '';
 
   constructor(private commandeService: Commande1Service) { }
 
   ngOnInit(): void {
+    // Charger toutes les commandes au début (optionnel)
     this.loadCommandes();
   }
 
-  loadCommandes(): void {
-    this.commandeService.getCommandes().subscribe(data => {
+  loadCommandes(statut: string = ''): void {
+    this.commandeService.getCommandesByStatut(statut).subscribe(data => {
       this.commandes = data;
     });
+  }
+
+  searchByStatut(): void {
+    this.loadCommandes(this.selectedStatut);
   }
 
   deleteCommande(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) {
       this.commandeService.deleteCommande(id).subscribe(() => {
-        this.loadCommandes(); // Recharge la liste des commandes après la suppression
+        this.loadCommandes(this.selectedStatut); // Recharge les commandes après suppression
       });
     }
   }
