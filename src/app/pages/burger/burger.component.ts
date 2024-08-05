@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BurgerService } from 'src/app/services/burger.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-burger',
@@ -8,16 +10,36 @@ import { BurgerService } from 'src/app/services/burger.service';
   styleUrls: ['./burger.component.css']
 })
 export class BurgerComponent  implements OnInit {
+  message = ""
   tabArticles: any = [];
   selectedFile: File | null = null;
   newBurger: any = {
     image: null // Initialiser image à null
   };
+  userName: string | null = null;
 
-  constructor(private burgerService: BurgerService) {}
+  constructor(private burgerService: BurgerService,public router: Router,private userService: UserService,private http:HttpClient) {}
 
+  
   ngOnInit(): void {
+    this.http.get('http://localhost:8000/api/user', {withCredentials: true}).subscribe(
+      (res: any) => {
+        this.message = `Hi ${res.name}`;
+        
+      },
+      err => {
+        this.message = 'You are not logged in';
+      }
+    );
     this.getBurgers();
+    this.userService.getUserDetails().subscribe(
+      user => {
+        this.userName = user.name; // Remplacez 'name' par la propriété appropriée selon votre API
+      },
+      error => {
+        console.error('Error fetching user details:', error);
+      }
+    );
   }
 
   getBurgers(): void {

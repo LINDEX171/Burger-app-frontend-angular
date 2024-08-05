@@ -1,0 +1,60 @@
+
+
+<!-- listcommande.component.html -->
+
+<section id="product">
+    <div class="container">
+      <main>
+        <router-outlet></router-outlet>
+        <div class="productHeading text-center">
+          <h2 class="mb-3">Liste des commandes de burgers</h2>
+        </div>
+  
+        <!-- Table Section -->
+        <div class="row mt-3">
+          <div class="col-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nom du client</th>
+                  <th scope="col">Prenom du client</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Nom du burger</th>
+                  <th scope="col">Statut</th>
+                  <th scope="col">Date de commande</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let commande of commandes">
+                  <td>{{ commande.id }}</td>
+                  <td>{{ commande.nom }} </td>
+                  <td>{{ commande.prenom }} </td>
+                  <td>{{ commande.email }} </td>
+                  <td>{{ commande.burger.name }}</td>
+                  <td>{{ commande.statut }}</td>
+                  <td>{{ commande.date_commande }}</td>
+                  <td>
+                    <a [routerLink]="['/commande/edit', commande.id]" class="btn btn-warning btn-sm">
+                      <i class="fa-solid fa-pen"></i>
+                    </a>
+                <i class="fa-solid fa-trash text-danger" (click)="deleteCommande(commande.id)" style="cursor: pointer;"></i>
+                <!-- Bouton pour envoyer l'email -->
+                <button 
+                *ngIf="commande.statut === 'terminee'"
+                (click)="sendEmail(commande.id)"
+                class="btn btn-primary btn-sm"
+            > 
+                <i class="fa fa-envelope"></i> Envoyer Email
+            </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+  

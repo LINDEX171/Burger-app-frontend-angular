@@ -1,1 +1,25 @@
-<p>newcontact works!</p>
+<div class="row">
+    <div class="col-12">
+        <h3>Ajouter un nouveau burger</h3>
+        <form (ngSubmit)="addBurger()" [formGroup]="burgerForm" >
+            <div class="mb-3">
+                <label for="name" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="name" formControlName="name" [(ngModel)]="newBurger.name" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Prix</label>
+                <input type="number" class="form-control" id="price" formControlName="price" [(ngModel)]="newBurger.price" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" class="form-control" id="image" formControlName="image" (change)="onFileSelected($event)">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" formControlName="description" [(ngModel)]="newBurger.description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter Burger</button>
+        </form>
+    </div>
+</div>  

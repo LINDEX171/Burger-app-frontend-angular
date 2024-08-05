@@ -14,7 +14,38 @@ export class BurgerService {
     return this.httpClient.get<any>(`${this.apiUrl}burgers`);
   }
 
-  addBurger(burgerData: any): Observable<any> {
+   
+  addBurger(burgerData: FormData): Observable<any> {
     return this.httpClient.post<any>(`${this.apiUrl}addburgers`, burgerData);
   }
+  
+  
+  getBurgerById(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.apiUrl}burgers/${id}`);
+  }
+   
+
+  archiveBurger(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.apiUrl}burgers/${id}`);
+  }
+
+   
+
+
+  getBurger(id: number): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}burgers/${id}`);
+  }
+
+  
+
+  updateBurger(id: number, burgerData: FormData): Observable<any> {
+    return this.httpClient.put<any>(`${this.apiUrl}burgers/${id}`, burgerData);
+  }
+  
+  
+  
+   
+  
+  
+  
 }

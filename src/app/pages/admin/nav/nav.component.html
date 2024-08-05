@@ -6,6 +6,7 @@
     <a mat-button routerLink="/" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
     <a mat-button routerLink="/contacts" class="top-menu-item"><mat-icon>people</mat-icon>Contacts</a>
     <a mat-button routerLink="/newcontact" class="top-menu-item"><mat-icon>person_add</mat-icon>New Contact</a>
+    <a mat-button routerLink="/commandes" class="top-menu-item"><mat-icon>person_add</mat-icon>listcommande</a>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -24,6 +25,11 @@
             <div>
                 <a (click)="sidenav.close()" mat-button routerLink="/newcontact"
                     class="side-menu-item"><mat-icon>person_add</mat-icon>New
+                    Contact</a>
+            </div>
+            <div>
+                <a (click)="sidenav.close()" mat-button routerLink="/newcontact"
+                    class="side-menu-item"><mat-icon>listcommande</mat-icon>New
                     Contact</a>
             </div>
         </div>

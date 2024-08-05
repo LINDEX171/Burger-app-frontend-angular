@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Modifier Burger</h2>
+    <form (ngSubmit)="onSubmit()" #burgerForm="ngForm">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="burger.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="price">Prix</label>
+        <input type="number" id="price" class="form-control" [(ngModel)]="burger.price" name="price" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="burger.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="is_active">Actif</label>
+        <input type="checkbox" id="is_active" [(ngModel)]="burger.is_active" name="is_active">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" id="image" (change)="onFileChange($event)">
+      </div>
+      <button type="submit" class="btn btn-primary">Mettre à Jour</button>
+    </form>
+  </div>
+  

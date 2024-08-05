@@ -1,21 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BurgerService } from 'src/app/services/burger.service';
 
 @Component({
-  selector: 'app-contacts',
-  templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.css']
+  selector: 'app-burger1',
+  templateUrl: './burger1.component.html',
+  styleUrls: ['./burger1.component.css']
 })
-export class ContactsComponent implements OnInit {
+export class Burger1Component implements OnInit {
+  message = "you are not logged in"
   tabArticles: any = [];
   selectedFile: File | null = null;
-  newBurger: any = { image: null }; // Pour ajouter un nouveau burger
-  burgerToEdit: any = null; // Pour stocker les détails du burger à éditer
+  newBurger: any = {
+    image: null // Initialiser image à null
+  };
 
-  constructor(private burgerService: BurgerService, private router: Router) {}
+  constructor(private burgerService: BurgerService, private router: Router,private http:HttpClient) {}
 
   ngOnInit(): void {
+    this.http.get('http://localhost:8000/api/user')
     this.getBurgers();
   }
 
@@ -31,6 +35,7 @@ export class ContactsComponent implements OnInit {
     );
   }
 
+  // Méthode appelée lorsqu'un fichier est sélectionné
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0] as File;
   }
@@ -57,16 +62,8 @@ export class ContactsComponent implements OnInit {
   }
   
   
-
-  archiveBurger(id: number): void {
-    this.burgerService.archiveBurger(id).subscribe(
-      (data: any) => {
-        console.log('Burger archivé avec succès', data);
-        this.getBurgers();
-      },
-      (error) => {
-        console.error('Erreur lors de l\'archivage du burger', error);
-      }
-    );
+  // Méthode pour rediriger vers la page de connexion
+  redirectToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

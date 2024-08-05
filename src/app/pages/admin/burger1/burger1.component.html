@@ -77,15 +77,22 @@
               <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Contact us</a>
             </li>
             <li class="nav-item">
-              <span class="nav-link fw-semibold text-uppercase text-black me-1">Hello,{{ message }} {{ userName || 'Guest' }}</span>
-            </li>
-            <li class="nav-item">
               <a class="nav-link fw-semibold text-uppercase text-black me-1" routerLink="/login">
                 <i class="fa fa-user-circle fs-5" style="color: #202122;"></i>
               </a>
             </li>
             
             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle cart fw-semibold text-uppercase text-black  me-1" href="#"
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-cart-shopping fs-5" style="color: #202122;"></i>
+               
+
+                <span class="position-absolute  translate-middle badge rounded-pill bg-danger">
+                2
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
               <div class="dropdown-menu">
                 <div class="CartContainer">
                   <div class="row">
@@ -196,7 +203,7 @@
                                                 <span class="text-muted">(21)</span>
                                         </div>
                                         <div class="col-6 text-end">
-                                          <a [routerLink]="['/commande', a.id]" class="btn btn-sm btn-success">Add To Cart</a>
+                                            <button class="btn btn-sm btn-success" (click)="redirectToLogin()">Commander</button>
                                         </div>
                                     </div>
                                     

@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Ajouter une Commande pour {{ burger?.name }}</h2>
+    <form (ngSubmit)="save()">
+      <div>
+        <label for="nom">Nom:</label>
+        <input id="nom" [(ngModel)]="commande.nom" name="nom" required>
+      </div>
+  
+      <div>
+        <label for="prenom">Prénom:</label>
+        <input id="prenom" [(ngModel)]="commande.prenom" name="prenom" required>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="commande.email" name="email" required>
+      </div>
+  
+      <!-- Champs cachés, pas besoin de montrer ou modifier ces informations -->
+      <input type="hidden" [(ngModel)]="commande.burger_id" name="burger_id">
+      <input type="hidden" [(ngModel)]="commande.statut" name="statut">
+      <input type="hidden" [(ngModel)]="commande.date_commande" name="date_commande">
+  
+      <button type="submit">Ajouter Commande</button>
+    </form>
+  </div>
+  

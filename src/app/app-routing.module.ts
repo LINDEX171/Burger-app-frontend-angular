@@ -7,6 +7,19 @@ import { SignupComponent } from './pages/admin/signup/signup.component';
 import { NavComponent } from './pages/admin/nav/nav.component';
 import { ContactsComponent } from './pages/admin/contacts/contacts.component';
 import { NewcontactComponent } from './pages/admin/newcontact/newcontact.component';
+import { ListcommandeComponent } from './pages/admin/listcommande/listcommande.component';
+import { UpdateBurgerComponent } from './pages/admin/update-burger/update-burger.component';
+import { Burger1Component } from './pages/admin/burger1/burger1.component';
+import { RegisterComponent } from './pages/admin/register/register.component';
+import { Login1Component } from './pages/admin/login1/login1.component';
+import { Commande1Component } from './pages/admin/commande1/commande1.component';
+import { CommandeListComponent } from './components/commande-list/commande-list.component';
+import { CommandeFormComponent } from './components/commande-form/commande-form.component';
+import { CommandeEditComponent } from './components/commande-edit/commande-edit.component';
+import { BurgerListComponent } from './pages/burger-list/burger-list.component';
+import { AddBurgerComponent } from './pages/admin/add-burger/add-burger.component';
+import { BurgerEditComponent } from './components/burger-edit/burger-edit.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 
 const routes: Routes = [
@@ -15,16 +28,41 @@ const routes: Routes = [
       component : LoginComponent,
     },
     {
+      path : "listcommande",
+      component : ListcommandeComponent,
+    },
+    {
       path : "signup",
       component : SignupComponent,
     },
+    {
+      path : "register",
+      component : RegisterComponent,
+    },
+    {
+      path : "login1",
+      component : Login1Component,
+    },
+    { path: 'burgers', component: BurgerListComponent },
+    { path: 'add-burger', component: AddBurgerComponent },
+    { path: 'update-burger/:id', component: UpdateBurgerComponent },
   {
     path : "burger",
     component : BurgerComponent
   },
+ // { path: 'contacts/update-burger/:id', component: UpdateBurgerComponent },
+
+  { path: 'burgers/edit/:id', component: BurgerEditComponent },
   {
     path : "menu",
     component : MenuComponent
+  },
+  { path: 'commandes', component: CommandeListComponent },
+  { path: 'commande/:burgerId', component: CommandeFormComponent },
+  { path: 'commande/edit/:id', component: CommandeEditComponent },
+  {
+    path : "commande1",
+    component : Commande1Component
   },
   {
     path : "nav",
@@ -37,6 +75,18 @@ const routes: Routes = [
   {
     path : "newcontact",
     component : NewcontactComponent
+  },
+  {
+    path : "updateBurger/:id",
+    component : NewcontactComponent
+  },
+  {
+    path : "sta",
+    component : StatisticsComponent
+  },
+  {
+    path : "burger1",
+    component : Burger1Component
   },
   
 ];

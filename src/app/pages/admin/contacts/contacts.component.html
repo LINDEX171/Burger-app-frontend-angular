@@ -1,48 +1,46 @@
-
-
 <section id="product">
     <div class="container">
-        <main>
-            <router-outlet></router-outlet>
-            <div class="productHeading text-center">
-                <h2 class="mb-3">Liste des burgers</h2>
-            </div>
-
-            <!-- Table Section -->
-            <div class="row mt-3">
-                <div class="col-12">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let burger of tabArticles; let i = index">
-                                <th scope="row">{{ i + 1 }}</th>
-                                <td>{{ burger.name }}</td>
-                                <td>{{ burger.price }}</td>
-                                <td>{{ burger.description }}</td>
-                                <td><img [src]="'http://localhost:8000/' + burger.image" alt="{{ burger.name }}" style="height: 100px;"></td>
-                                <td>
-                                    <button mat-icon-button aria-label="Modifier">
-                                        <mat-icon>edit</mat-icon>
-                                    </button>
-                                    <button mat-icon-button aria-label="Archiver">
-                                        <mat-icon>archive</mat-icon>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        
-                    </table>
-                </div>
-            </div>
-        </main>
+      <main>
+        <router-outlet></router-outlet>
+        <div class="productHeading text-center">
+          <h2 class="mb-3">Liste des burgers</h2>
+        </div>
+  
+        <!-- Table Section -->
+        <div class="row mt-3">
+          <div class="col-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let burger of tabArticles; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ burger.name }}</td>
+                  <td>{{ burger.price }}</td>
+                  <td>{{ burger.description }}</td>
+                  <td><img [src]="'http://localhost:8000/' + burger.image" alt="{{ burger.name }}" style="height: 100px;"></td>
+                  <td>
+                    <a mat-icon-button aria-label="Modifier"  routerLink="/updateBurger/{{ burger.id }}">
+                        <mat-icon>edit</mat-icon>
+                    </a>    
+                    <button mat-icon-button aria-label="Archiver" (click)="archiveBurger(burger.id)">
+                      <mat-icon>archive</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </div>
-</section>
+  </section>
+  

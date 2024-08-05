@@ -25,7 +25,15 @@ export class AuthService {
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
-    return throwError(error.error.message || 'Server error');
+
+  logout(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
+      catchError(this.handleError)
+    );
+  } 
+
+  private handleError(error: any) {
+    console.error('Erreur de service :', error);
+    return throwError(error);
   }
 }

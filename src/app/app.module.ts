@@ -21,6 +21,21 @@ import { NavComponent } from './pages/admin/nav/nav.component';
 import { HomeComponent } from './pages/admin/home/home.component';
 import { ContactsComponent } from './pages/admin/contacts/contacts.component';
 import { NewcontactComponent } from './pages/admin/newcontact/newcontact.component';
+import { ListcommandeComponent } from './pages/admin/listcommande/listcommande.component';
+import { UpdateBurgerComponent } from './pages/admin/update-burger/update-burger.component';
+import { Burger1Component } from './pages/admin/burger1/burger1.component';
+import { RegisterComponent } from './pages/admin/register/register.component';
+import { Login1Component } from './pages/admin/login1/login1.component';
+import { Commande1Component } from './pages/admin/commande1/commande1.component';
+import { CommandeListComponent } from './components/commande-list/commande-list.component';
+import { CommandeFormComponent } from './components/commande-form/commande-form.component';
+import { CommandeEditComponent } from './components/commande-edit/commande-edit.component';
+import { BurgerEditComponent } from './components/burger-edit/burger-edit.component';
+import { BurgerListComponent } from './pages/burger-list/burger-list.component';
+import { AddBurgerComponent } from './pages/admin/add-burger/add-burger.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StatistiqueService } from './services/statistique.service';
+
 
 
 @NgModule({
@@ -35,6 +50,19 @@ import { NewcontactComponent } from './pages/admin/newcontact/newcontact.compone
     HomeComponent,
     ContactsComponent,
     NewcontactComponent,
+    ListcommandeComponent,
+    UpdateBurgerComponent,
+    Burger1Component,
+    RegisterComponent,
+    Login1Component,
+    Commande1Component,
+    CommandeListComponent,
+    CommandeFormComponent,
+    CommandeEditComponent,
+    BurgerEditComponent,
+    BurgerListComponent,
+    AddBurgerComponent,
+    StatisticsComponent,
     
   ],
   imports: [
@@ -52,7 +80,7 @@ import { NewcontactComponent } from './pages/admin/newcontact/newcontact.compone
     
     
   ],
-  providers: [BurgerService],
+  providers: [BurgerService,StatistiqueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
