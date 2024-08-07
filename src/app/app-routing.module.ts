@@ -20,6 +20,8 @@ import { BurgerListComponent } from './pages/burger-list/burger-list.component';
 import { AddBurgerComponent } from './pages/admin/add-burger/add-burger.component';
 import { BurgerEditComponent } from './components/burger-edit/burger-edit.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,7 @@ const routes: Routes = [
       path : "listcommande",
       component : ListcommandeComponent,
     },
+    { path: 'welcome', component: WelcomeComponent },
     {
       path : "signup",
       component : SignupComponent,
@@ -79,6 +82,10 @@ const routes: Routes = [
   {
     path : "updateBurger/:id",
     component : NewcontactComponent
+  },
+  {
+    path : "connexion",
+    component : ConnexionComponent
   },
   {
     path : "sta",

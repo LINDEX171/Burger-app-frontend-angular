@@ -45,4 +45,8 @@ getCommandesByStatut(statut: string): Observable<any[]> {
   sendEmail(id: number): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/${id}/send-email`, {});
   }
+
+  sendEmail1(id: number): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${id}/send-email1`, {});
+  }
 }

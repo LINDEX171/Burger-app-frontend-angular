@@ -1,16 +1,61 @@
-<!-- src/app/components/statistics/statistics.component.html -->
-
 <div class="container">
-    <h2>Statistiques des Commandes</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Commandes en Cours</h4>
-        <p>{{ enCoursCount }}</p>
+  <h2 class="my-4">Statistiques des Commandes</h2>
+  <div class="row">
+    <!-- Carte pour Commandes en Cours -->
+    <div class="col-md-3 mb-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body">
+          <i class="fas fa-hourglass-start fa-2x"></i> <!-- Icône -->
+          <h5 class="card-title">Commandes en Cours</h5>
+          <p class="card-text">{{ enCoursCount }}</p>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h4>Commandes Terminées</h4>
-        <p>{{ termineeCount }}</p>
+    </div>
+
+    <!-- Carte pour Commandes Payées -->
+    <div class="col-md-3 mb-3">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <i class="fas fa-check-circle fa-2x"></i> <!-- Icône -->
+          <h5 class="card-title">Commandes Payées</h5>
+          <p class="card-text">{{ payeeCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte pour Commandes Terminées -->
+    <div class="col-md-3 mb-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body">
+          <i class="fas fa-calendar-check fa-2x"></i> <!-- Icône -->
+          <h5 class="card-title">Commandes Terminées</h5>
+          <p class="card-text">{{ termineeCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte pour Commandes Annulées -->
+    <div class="col-md-3 mb-3">
+      <div class="card text-white bg-danger">
+        <div class="card-body">
+          <i class="fas fa-times-circle fa-2x"></i> <!-- Icône -->
+          <h5 class="card-title">Commandes Annulées</h5>
+          <p class="card-text">{{ annuleeCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte pour Commandes d'Aujourd'hui -->
+    <div class="col-md-3 mb-3">
+      <div class="card text-white bg-info">
+        <div class="card-body">
+          <i class="fas fa-calendar-day fa-2x"></i> <!-- Icône -->
+          <h5 class="card-title">Commandes Aujourd'hui</h5>
+          <p class="card-text">{{ commandesToday }}</p>
+        </div>
       </div>
     </div>
   </div>
-  
+
+ 
+</div>

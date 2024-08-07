@@ -2,26 +2,33 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private apiUrl = 'http://localhost:8000/api'; // URL de ton API Laravel
+  private userSubject = new BehaviorSubject<any>(null);
+  user$ = this.userSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  register(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, data).pipe(
-      catchError(this.handleError)
-    );
-  }
+    register(data: any): Observable<any> {
+      return this.http.post(`${this.apiUrl}/register`, data).pipe(
+        catchError(this.handleError)
+      );
+    }
 
-  login(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, data).pipe(
-      catchError(this.handleError)
+  login(email: string, password: string) {
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
+      tap(response => {
+        if (response.token) {
+          localStorage.setItem('authToken', response.token);
+          this.userSubject.next(response.user);
+        }
+      })
     );
   }
 

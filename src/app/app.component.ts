@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(public router: Router) {}
 
   isSpecialPage(): boolean {
-    return this.router.url === '/login' || this.router.url === '/burger' || this.router.url === '/signup' || this.router.url === '/burger1';
+    return this.router.url === '/login' || this.router.url === '/burger' || this.router.url === '/signup' || this.router.url === '/burger1' || this.router.url === '/nav';
   }
 
 }

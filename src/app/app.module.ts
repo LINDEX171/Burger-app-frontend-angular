@@ -35,6 +35,9 @@ import { BurgerListComponent } from './pages/burger-list/burger-list.component';
 import { AddBurgerComponent } from './pages/admin/add-burger/add-burger.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { StatistiqueService } from './services/statistique.service';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+
 
 
 
@@ -63,6 +66,8 @@ import { StatistiqueService } from './services/statistique.service';
     BurgerListComponent,
     AddBurgerComponent,
     StatisticsComponent,
+    ConnexionComponent,
+    WelcomeComponent,
     
   ],
   imports: [

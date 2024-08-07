@@ -8,29 +8,23 @@ import { Commande1Service } from '../../services/commande1.service';
 })
 export class CommandeListComponent implements OnInit {
   commandes: any[] = [];
-  selectedStatut: string = '';
 
   constructor(private commandeService: Commande1Service) { }
 
   ngOnInit(): void {
-    // Charger toutes les commandes au début (optionnel)
     this.loadCommandes();
   }
 
-  loadCommandes(statut: string = ''): void {
-    this.commandeService.getCommandesByStatut(statut).subscribe(data => {
+  loadCommandes(): void {
+    this.commandeService.getCommandes().subscribe(data => {
       this.commandes = data;
     });
-  }
-
-  searchByStatut(): void {
-    this.loadCommandes(this.selectedStatut);
   }
 
   deleteCommande(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) {
       this.commandeService.deleteCommande(id).subscribe(() => {
-        this.loadCommandes(this.selectedStatut); // Recharge les commandes après suppression
+        this.loadCommandes(); // Recharge la liste des commandes après la suppression
       });
     }
   }
@@ -48,4 +42,21 @@ export class CommandeListComponent implements OnInit {
       );
     }
   }
+
+
+  sendEmail1(id: number): void {
+    if (confirm('Êtes-vous sûr de vouloir envoyer un recu pour ce client ?')) {
+      this.commandeService.sendEmail1(id).subscribe(
+        () => {
+          alert('recu envoyé avec succès!');
+        },
+        (error) => {
+          console.error('Erreur lors de l\'envoi de l\'email:', error);
+          alert('Erreur lors de l\'envoi de l\'email.');
+        }
+      );
+    }
+  }
+
+  
 }

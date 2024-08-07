@@ -10,27 +10,26 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  email: string = '';
+  password: string = '';
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+  
+  constructor(private authService: AuthService,private router:Router) { }
+
+  login() {
+    this.authService.login(this.email, this.password).subscribe({
+      next: () => {
+        // Connexion réussie
+        this.router.navigate(['/nav']); 
+        this.errorMessage = '';
+      },
+      error: (err) => {
+        // Afficher une erreur si nécessaire
+        this.errorMessage = 'Détails de connexion invalides';
+      }
     });
   }
-
-  onSubmit() {
-    if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe(
-        response => {
-          // Redirige vers une autre page après une connexion réussie
-          this.router.navigate(['/burger']); // Change '/home' vers la route appropriée
-        },
-        error => {
-          this.errorMessage = error; // Affiche le message d'erreur
-        }
-      );
-    }
-  }
 }
+
+

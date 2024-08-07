@@ -9,10 +9,29 @@
             <h2 class="center flex roboto-thin">Many possibilities</h2>
         </div>
 
-        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
             <section class="form">
-                <input class="center flex roboto-thin" type="email" formControlName="email" placeholder="E-mail address or phone number">
-                <input class="center flex roboto-thin" type="password" formControlName="password" placeholder="Password">
+                <input
+          type="email" class="center flex roboto-thin"
+          id="email"
+          name="email"
+          placeholder="E-mail "
+          [(ngModel)]="email"
+          #emailInput="ngModel"
+          required
+        />
+        <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+            <div *ngIf="emailInput.errors?.['required']">L'email est requis.</div>
+            <div *ngIf="emailInput.errors?.['email']">L'email est invalide.</div>
+        </div>
+     
+                <input class="center flex roboto-thin" type="password" name="password" placeholder="Password" [(ngModel)]="password"
+                #passwordInput="ngModel"
+                required>
+
+                <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+                    <div *ngIf="passwordInput.errors?.['required']">Le mot de passe est requis.</div>
+                  </div>
                 <div class="space-between">
                     <div class="center flex">
                         <input type="checkbox" id="rememberMe">
@@ -26,10 +45,9 @@
             </section>
 
             <section class="buttons">
-                <button class="center flex button button-primary" type="submit">Sign in</button>
-                <button class="center flex button button-secondary" type="button">
-                    <!-- Google Sign In Button -->
-                </button>
+                <button class="center flex button button-primary" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+                <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+              
             </section>
 
             <section class="not-member center flex">
