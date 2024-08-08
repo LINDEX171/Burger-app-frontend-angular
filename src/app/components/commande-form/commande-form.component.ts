@@ -43,6 +43,7 @@ export class CommandeFormComponent implements OnInit {
 
   save(): void {
     this.commandeService.createCommande(this.commande)
-      .subscribe(() => this.router.navigate(['/commandes']));
+      .subscribe(() => this.router.navigate(['/success']));
+      alert('Commande ajoutée avec succès!');
   }
 }

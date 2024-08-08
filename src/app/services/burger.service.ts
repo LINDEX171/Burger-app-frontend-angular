@@ -14,6 +14,11 @@ export class BurgerService {
     return this.httpClient.get<any>(`${this.apiUrl}burgers`);
   }
 
+
+  getBurgers1(): Observable<any> {
+    return this.httpClient.get<any>(`${this.apiUrl}burgersreactive`);
+  }
+
    
   addBurger(burgerData: FormData): Observable<any> {
     return this.httpClient.post<any>(`${this.apiUrl}addburgers`, burgerData);
@@ -30,6 +35,10 @@ export class BurgerService {
   }
 
    
+   // Méthode pour désarchiver (réactiver) un burger
+   restoreBurger(id: number): Observable<any> {
+    return this.httpClient.put<any>(`${this.apiUrl}burgers/${id}/restore`, {});
+  }
 
 
   getBurger(id: number): Observable<any> {

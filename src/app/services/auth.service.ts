@@ -15,11 +15,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-    register(data: any): Observable<any> {
-      return this.http.post(`${this.apiUrl}/register`, data).pipe(
-        catchError(this.handleError)
-      );
-    }
+  register(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, data).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   login(email: string, password: string) {
     return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
@@ -33,14 +33,28 @@ export class AuthService {
   }
 
 
-  logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-      catchError(this.handleError)
-    );
-  } 
-
+ 
   private handleError(error: any) {
     console.error('Erreur de service :', error);
     return throwError(error);
   }
+
+
+  logout(): Observable<any> {
+    const token = localStorage.getItem('authToken');
+    if (!token) return new Observable(observer => observer.complete());
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<any>(`${this.apiUrl}/logout`, {}, { headers }).pipe(
+      tap(() => {
+        localStorage.removeItem('authToken');
+        this.userSubject.next(null);
+      })
+    );
+  }
+
+  getCurrentUser(): Observable<any> {
+    return this.userSubject.asObservable();
+  }
+
 }

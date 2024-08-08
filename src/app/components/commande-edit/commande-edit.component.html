@@ -1,36 +1,36 @@
 <div class="container">
-    <h2>Modifier la Commande pour {{ burger?.name }}</h2>
-    <form (ngSubmit)="save()">
-      <div>
-        <label for="nom">Nom:</label>
-        <input id="nom" [(ngModel)]="commande.nom" name="nom" required>
+  <h2>Modifier la Commande pour {{ burger?.name }}</h2>
+  <form (ngSubmit)="save()" class="form-group">
+      <div class="mb-3">
+          <label for="nom" class="form-label">Nom:</label>
+          <input id="nom" [(ngModel)]="commande.nom" name="nom" class="form-control" required readonly>
       </div>
-  
-      <div>
-        <label for="prenom">Prénom:</label>
-        <input id="prenom" [(ngModel)]="commande.prenom" name="prenom" required>
+
+      <div class="mb-3">
+          <label for="prenom" class="form-label">Prénom:</label>
+          <input id="prenom" [(ngModel)]="commande.prenom" name="prenom" class="form-control" required readonly>
       </div>
-  
-      <div>
-        <label for="email">Email:</label>
-        <input id="email" [(ngModel)]="commande.email" name="email" required>
-      </div> 
-      <div>
-        <label for="statut">Statut:</label>
-        <select id="statut" [(ngModel)]="commande.statut" name="statut" required>
-          <option value="en_attente">En attente</option>
-          <option value="terminee">Terminée</option>
-          <option value="annulee">Annulée</option>
-          <option value="payee">Payée</option>
-        </select>
+
+      <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input id="email" [(ngModel)]="commande.email" name="email" class="form-control" required readonly>
       </div>
-  
-      <div>
-        <label for="date_commande">Date de Commande:</label>
-        <input id="date_commande" [(ngModel)]="commande.date_commande" name="date_commande" type="datetime-local" required>
+      
+      <div class="mb-3">
+          <label for="statut" class="form-label">Statut:</label>
+          <select id="statut" [(ngModel)]="commande.statut" name="statut" class="form-control" required>
+              <option value="en_attente">En attente</option>
+              <option value="terminee">Terminée</option>
+              <option value="annulee">Annulée</option>
+              <option value="payee">Payée</option>
+          </select>
       </div>
-  
-      <button type="submit">Sauvegarder les Modifications</button>
-    </form>
-  </div>
-  
+
+      <div class="mb-3">
+          <label for="date_commande" class="form-label">Date de Commande:</label>
+          <input id="date_commande" [(ngModel)]="commande.date_commande" name="date_commande" type="datetime-local" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sauvegarder les Modifications</button>
+  </form>
+</div>

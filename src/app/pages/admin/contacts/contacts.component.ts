@@ -69,4 +69,17 @@ export class ContactsComponent implements OnInit {
       }
     );
   }
+
+    // Méthode pour désarchiver un burger
+    restoreBurger(id: number): void {
+      this.burgerService.restoreBurger(id).subscribe(
+        (data: any) => {
+          console.log('Burger réactivé avec succès', data);
+          this.getBurgers(); // Recharger la liste des burgers
+        },
+        (error) => {
+          console.error('Erreur lors de la réactivation du burger', error);
+        }
+      );
+    }
 }

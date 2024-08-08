@@ -30,6 +30,6 @@ export class RegisterComponent implements OnInit {
 
   submit(): void {
     this.http.post('http://localhost:8000/api/register', this.form.getRawValue())
-      .subscribe(() => this.router.navigate(['/login1']));
+      .subscribe(() => this.router.navigate(['/login']));
   }
 }

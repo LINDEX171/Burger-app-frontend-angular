@@ -13,75 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0  text-center ">
   
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fw-semibold text-uppercase  me-1 text-danger" href="#"
-                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                home
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Option</a></li>
-                <li><a class="dropdown-item" href="#">Option</a></li>
-  
-                <li><a class="dropdown-item" href="#">Option</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle redHover fw-semibold text-uppercase text-black  me-1" href="#"
-                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                pages
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Option</a></li>
-                <li><a class="dropdown-item" href="#">Option</a></li>
-  
-                <li><a class="dropdown-item" href="#">Option</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                product
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Option</a></li>
-                <li><a class="dropdown-item" href="#">Option</a></li>
-  
-                <li><a class="dropdown-item" href="#">Option</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown fw-semibold text-uppercase text-black  me-1">
-              <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                blog
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Option</a></li>
-                <li><a class="dropdown-item" href="#">Option</a></li>
-  
-                <li><a class="dropdown-item" href="#">Option</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                shop
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Option</a></li>
-                <li><a class="dropdown-item" href="#">Option</a></li>
-  
-                <li><a class="dropdown-item" href="#">Option</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <span class="nav-link fw-semibold text-uppercase text-black me-1">Hello,{{ message }} {{ userName || 'Guest' }}</span>
-            </li>
+           
+           
+            
             <li class="nav-item">
               <a class="nav-link fw-semibold text-uppercase text-black me-1" routerLink="/login">
                 <i class="fa fa-user-circle fs-5" style="color: #202122;"></i>
+                login Admin
               </a>
             </li>
             
@@ -168,12 +106,7 @@
             <div class="col-12">
                 <div class="productHeading text-center">
                     <h2 class="mb-3">Exclusive Products</h2> 
-                    <ul class="list-unstyled d-flex   justify-content-center ">
-                        <li><a href="#" class=" m-4  text-decoration-none text-danger fw-semibold  ">New Arrival</a></li>
-                        <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black">Best Sellers</a></li>
-                        <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black">Featured</a></li>
-                        <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black ">Special Offer</a></li>
-                    </ul>  
+                    
                 </div>
             </div>
             <div class="col-12" >
@@ -187,16 +120,16 @@
                                     <h5 class="card-title">{{ a.name }}</h5>
                                     <p class="card-text"><span
                                             class="text-danger fw-semibold me-2"></span><del> </del>
-                                        <span class="text-success ms-2">35% Off</span></p>
+                                        {{ a.description }}</p>
                                      
                                     <div class="row">
                                         <div class="col-6">
                                             <i class="fa-solid fa-star-half-stroke  m-0"
                                                 style="color: #f1f50f;"></i> 
-                                                <span class="text-muted">(21)</span>
+                                                <span class="text-muted">{{ a.price }}€</span>
                                         </div>
                                         <div class="col-6 text-end">
-                                          <a [routerLink]="['/commande', a.id]" class="btn btn-sm btn-success">Add To Cart</a>
+                                          <a [routerLink]="['/commande', a.id]" class="btn btn-sm btn-success">Ajouer commande</a>
                                         </div>
                                     </div>
                                     

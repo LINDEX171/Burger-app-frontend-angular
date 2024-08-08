@@ -4,10 +4,11 @@
     </button>
     <span id="menuTitle">Cinay burger</span>
     <a mat-button routerLink="/sta" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
-    <a mat-button routerLink="/contacts" class="top-menu-item"><mat-icon>fastfood</mat-icon>liste burgers</a>
-    <a mat-button routerLink="/newcontact" class="top-menu-item"><mat-icon>add_circle</mat-icon>Ajout burger</a>
+    <a mat-button routerLink="/ajoutburger" class="top-menu-item"><mat-icon>add_circle</mat-icon>Ajout burger</a>
+    <a mat-button routerLink="/listburger" class="top-menu-item"><mat-icon>fastfood</mat-icon>liste burgers</a>
     <a mat-button routerLink="/commandes" class="top-menu-item"><mat-icon>list</mat-icon>listcommande</a>
-
+    <a mat-button routerLink="/restore" class="top-menu-item"><mat-icon>restore</mat-icon>desarchiver burger</a>
+    <button mat-button (click)="logout()" class="top-menu-item"><mat-icon>exit_to_app</mat-icon>Déconnexion</button>
       
 </mat-toolbar>
 

@@ -22,6 +22,9 @@ import { BurgerEditComponent } from './components/burger-edit/burger-edit.compon
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RestoreBurgerComponent } from './pages/admin/restore-burger/restore-burger.component';
+import { SuccessComponent } from './pages/admin/success/success.component';
 
 
 const routes: Routes = [
@@ -60,9 +63,15 @@ const routes: Routes = [
     path : "menu",
     component : MenuComponent
   },
+  {
+    path : "restore",
+    component : RestoreBurgerComponent
+  },
   { path: 'commandes', component: CommandeListComponent },
   { path: 'commande/:burgerId', component: CommandeFormComponent },
   { path: 'commande/edit/:id', component: CommandeEditComponent },
+  { path: 'success', component: SuccessComponent },
+  { path: 'logout', component: LogoutComponent },
   {
     path : "commande1",
     component : Commande1Component
@@ -72,11 +81,11 @@ const routes: Routes = [
     component : NavComponent
   },
   {
-    path : "contacts",
+    path : "listburger",
     component : ContactsComponent
   },
   {
-    path : "newcontact",
+    path : "ajoutburger",
     component : NewcontactComponent
   },
   {

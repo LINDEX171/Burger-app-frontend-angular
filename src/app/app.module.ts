@@ -37,6 +37,9 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { StatistiqueService } from './services/statistique.service';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RestoreBurgerComponent } from './pages/admin/restore-burger/restore-burger.component';
+import { SuccessComponent } from './pages/admin/success/success.component';
 
 
 
@@ -68,6 +71,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     StatisticsComponent,
     ConnexionComponent,
     WelcomeComponent,
+    LogoutComponent,
+    RestoreBurgerComponent,
+    SuccessComponent,
     
   ],
   imports: [
