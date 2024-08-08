@@ -8,7 +8,11 @@
     <a mat-button routerLink="/listburger" class="top-menu-item"><mat-icon>fastfood</mat-icon>liste burgers</a>
     <a mat-button routerLink="/restore" class="top-menu-item"><mat-icon>restore</mat-icon>desarchiver burger</a>
     <a mat-button routerLink="/commandes" class="top-menu-item"><mat-icon>list</mat-icon>listcommande</a>
-    <button mat-button (click)="logout()" class="top-menu-item"><mat-icon>exit_to_app</mat-icon>Déconnexion</button>
+    <button mat-button *ngIf="isAuthenticated" (click)="logout()" class="top-menu-item">
+        <mat-icon>exit_to_app</mat-icon>Déconnexion
+      </button>
+
+      <!-- <button mat-button (click)="logout()" class="top-menu-item"><mat-icon>exit_to_app</mat-icon>Déconnexion</button> -->
       
 </mat-toolbar>
 

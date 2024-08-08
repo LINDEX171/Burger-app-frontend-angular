@@ -25,6 +25,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RestoreBurgerComponent } from './pages/admin/restore-burger/restore-burger.component';
 import { SuccessComponent } from './pages/admin/success/success.component';
+import { AuthenticatedGuard } from './authenticated.guard';
 
 
 const routes: Routes = [
@@ -34,8 +35,7 @@ const routes: Routes = [
     },
     {
       path : "listcommande",
-      component : ListcommandeComponent,
-    },
+      component : ListcommandeComponent, canActivate: [AuthenticatedGuard] },
     { path: 'welcome', component: WelcomeComponent },
     {
       path : "signup",
@@ -50,8 +50,8 @@ const routes: Routes = [
       component : Login1Component,
     },
     { path: 'burgers', component: BurgerListComponent },
-    { path: 'add-burger', component: AddBurgerComponent },
-    { path: 'update-burger/:id', component: UpdateBurgerComponent },
+    { path: 'add-burger', component: AddBurgerComponent , canActivate: [AuthenticatedGuard] },
+    { path: 'update-burger/:id', component: UpdateBurgerComponent , canActivate: [AuthenticatedGuard] },
   {
     path : "burger",
     component : BurgerComponent
@@ -66,32 +66,28 @@ const routes: Routes = [
   {
     path : "restore",
     component : RestoreBurgerComponent
-  },
+    , canActivate: [AuthenticatedGuard] },
   { path: 'commandes', component: CommandeListComponent },
   { path: 'commande/:burgerId', component: CommandeFormComponent },
-  { path: 'commande/edit/:id', component: CommandeEditComponent },
+  { path: 'commande/edit/:id', component: CommandeEditComponent , canActivate: [AuthenticatedGuard] },
   { path: 'success', component: SuccessComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'logout', component: LogoutComponent , canActivate: [AuthenticatedGuard] },
   {
     path : "commande1",
     component : Commande1Component
   },
-  {
-    path : "nav",
-    component : NavComponent
-  },
+  { path: 'nav', component: NavComponent, canActivate: [AuthenticatedGuard] },
   {
     path : "listburger",
-    component : ContactsComponent
-  },
+    component : ContactsComponent, canActivate: [AuthenticatedGuard] },
   {
     path : "ajoutburger",
     component : NewcontactComponent
-  },
+    , canActivate: [AuthenticatedGuard] },
   {
     path : "updateBurger/:id",
     component : NewcontactComponent
-  },
+    , canActivate: [AuthenticatedGuard] },
   {
     path : "connexion",
     component : ConnexionComponent
@@ -99,7 +95,7 @@ const routes: Routes = [
   {
     path : "sta",
     component : StatisticsComponent
-  },
+    , canActivate: [AuthenticatedGuard] },
   {
     path : "burger1",
     component : Burger1Component

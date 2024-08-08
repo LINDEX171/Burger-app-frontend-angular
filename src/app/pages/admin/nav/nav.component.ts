@@ -9,19 +9,24 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
   userName: string | null = null;
+  isAuthenticated: boolean = false;
 
   constructor(private authService: AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.authService.user$.subscribe(user => {
       this.userName = user?.name || null;
+      this.isAuthenticated = !!this.userName; 
     });
   }
 
   logout(): void {
     this.authService.logout().subscribe({
       next: () => {
+        this.isAuthenticated = false;
         this.router.navigate(['/login']); // Redirige vers la page de login après la déconnexion
+        
+        
       },
       error: (err) => {
         console.error('Erreur lors de la déconnexion', err);
@@ -29,4 +34,6 @@ export class NavComponent implements OnInit {
       }
     });
   }
+
+  
 }

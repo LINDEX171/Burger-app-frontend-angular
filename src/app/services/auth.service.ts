@@ -57,4 +57,11 @@ export class AuthService {
     return this.userSubject.asObservable();
   }
 
+  // Vérifie si l'utilisateur est connecté
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  
+
 }
