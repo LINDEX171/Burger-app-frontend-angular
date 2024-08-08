@@ -54,6 +54,8 @@ export class ContactsComponent implements OnInit {
         console.error('Erreur lors de l\'ajout du burger', error);
       }
     );
+
+    alert('Burger ajouté avec succès !');
   }
   
   
@@ -68,6 +70,7 @@ export class ContactsComponent implements OnInit {
         console.error('Erreur lors de l\'archivage du burger', error);
       }
     );
+    alert('Burger archivé avec succès !');
   }
 
     // Méthode pour désarchiver un burger

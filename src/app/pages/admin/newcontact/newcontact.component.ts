@@ -90,6 +90,7 @@ addBurger(): void {
           console.error('Erreur lors de l\'ajout du burger', error);
       }
   );
+  alert('Burger ajouter avec succès !');
 }
   
 

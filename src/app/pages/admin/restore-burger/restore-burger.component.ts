@@ -50,5 +50,6 @@ export class RestoreBurgerComponent implements OnInit {
           console.error('Erreur lors de la réactivation du burger', error);
         }
       );
+      alert('Burger réactivé avec succès !');
     }
 }
