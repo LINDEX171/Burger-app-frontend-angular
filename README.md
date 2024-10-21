@@ -1,4 +1,4 @@
-Burger  🍔
+Burger  app🍔
 Welcome to the Burger App repository, a modern web application for burger enthusiasts, developed with Angular for the front-end and Laravel for the back-end 🫥.
 
 For Users
