@@ -1,5 +1,5 @@
 Burger  app🍔
-Welcom to the Burger App repository, a modern web application for burger enthusiasts, developed with Angular for the front-end and Laravel for the back-end 🫥.
+Welcome to the Burger App repository, a modern web application for burger enthusiasts, developed with Angular for the front-end and Laravel for the back-end 🫥.
 
 For Users
 A user-friendly interface that allows easy navigation through a wide selection of burgers. Once authenticated, users can place orders, modify them, or cancel them with just a few clicks 🤳🏻.
